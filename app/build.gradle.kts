@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.ozoraapps"
+    namespace = "com.example.marvelapps"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.ozoraapps"
+        applicationId = "com.example.marvelapps"
         minSdk = 29
         targetSdk = 36
         versionCode = 1
@@ -30,6 +30,9 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+    buildFeatures{
+        viewBinding = true
     }
 }
 

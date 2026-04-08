@@ -1,4 +1,4 @@
-package com.example.ozoraapps
+package com.example.marvelapps
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

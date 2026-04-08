@@ -1,4 +1,4 @@
-package com.example.ozoraapps
+package com.example.marvelapps
 
 import org.junit.Test
 
