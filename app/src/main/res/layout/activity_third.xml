@@ -6,8 +6,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
-    tools:context=".Pertemuan_3.ThirdActivity">
+    android:background="#D7386D"
+    tools:context=".pertemuan_3.ThirdActivity">
 
     <!-- Title -->
 
@@ -20,9 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:fontFamily="@font/alansans_medium"
         android:letterSpacing="0.4"
-        android:text="@string/judul"
+        android:text="Ozora Feona Surya"
         android:textColor="#E91E63"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -41,7 +40,6 @@
         android:layout_marginTop="60dp"
         android:background="@android:drawable/edit_text"
         android:backgroundTint="#FF69B4"
-        android:fontFamily="@font/alansans_medium"
         android:hint="Masukkan nomor tujuan..."
         android:padding="14dp"
         android:textSize="16sp"
@@ -57,11 +55,10 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50sp"
         android:layout_marginVertical="50sp"
-        android:backgroundTint="@color/bgbaru"
+        android:backgroundTint="#BA3C67"
         android:elevation="4dp"
         android:text="Kirim"
 
-        android:fontFamily="@font/alansans_medium"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -81,6 +78,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.217"
-        app:srcCompat="@drawable/hp" />
+        app:srcCompat="@drawable/gambar1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

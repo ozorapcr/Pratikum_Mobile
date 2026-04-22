@@ -1,4 +1,4 @@
-package com.example.marvelapps.Pertemuan_3
+package com.example.marvelapps.pertemuan_3
 
 import android.content.Intent
 import android.os.Bundle
