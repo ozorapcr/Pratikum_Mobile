@@ -1,15 +1,19 @@
 package com.example.marvelapps
+
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.marvelapps.Pertemuan_5.FifthActivity
 import com.example.marvelapps.databinding.ActivityMainBinding
-import com.example.marvelapps.pertemuan_3.ThirdResultActivity
-import com.example.marvelapps.pertemuan_4.FourthActivity
-import com.example.marvelapps.R
+import com.example.marvelapps.Home.pertemuan_4.FourthActivity
+
+import com.example.marvelapps.Home.pertemuan_7.SeventhActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlin.jvm.java
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,41 +21,59 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
 
+        // 🔥 INIT BINDING
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        // 🔥 HANDLE SAFE AREA
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Button ke Activity lain
-        binding.btnSubmit1.setOnClickListener {
-            val intent = Intent(this, ThirdResultActivity::class.java)
+        // 🔵 KE PERTEMUAN 4
+        binding.btnToFourth.setOnClickListener {
+            val intent = Intent(this, FourthActivity::class.java)
+            intent.putExtra("nama", "Politeknik Caltex Riau")
+            intent.putExtra("asal", "Rumbai")
+            intent.putExtra("usia", 25)
             startActivity(intent)
         }
 
-        binding.btnSubmit2.setOnClickListener {
-            val intent = Intent(this, FourthActivity::class.java)
-            intent.putExtra("name", "Politeknik Caltex Riau")
-            intent.putExtra("from", "Rumbai")
-            intent.putExtra("age", 25)
-
-            startActivity(intent) // FIX: tidak dobel lagi
+        // 🔵 KE PERTEMUAN 5
+        binding.btnToFifth.setOnClickListener {
+            val intent = Intent(this, FifthActivity::class.java)
+            startActivity(intent)
         }
 
-        // 🔥 LOGOUT
+        // 🔵 KE PERTEMUAN 7
+        binding.btnToSeventh.setOnClickListener {
+            val intent = Intent(this, SeventhActivity::class.java)
+            startActivity(intent)
+        }
+
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
         binding.btnLogout.setOnClickListener {
-            AlertDialog.Builder(this)
-                .setTitle("Logout")
-                .setMessage("Apakah kamu yakin ingin logout?")
-                .setPositiveButton("Ya") { _, _ ->
+            MaterialAlertDialogBuilder(this)
+                .setTitle("Konfirmasi Logout")
+                .setMessage("Apakah Anda yakin ingin logout?")
+                .setPositiveButton("Ya") { dialog, _ ->
+                    val editor = sharedPref.edit()
+                    editor.clear()
+                    editor.apply()
+                    dialog.dismiss()
+                    val intent = Intent(this, AuthActivity::class.java)
+                    startActivity(intent)
+                    Log.e("Logout", "User logout")
                     finish()
                 }
-                .setNegativeButton("Tidak", null)
+                .setNegativeButton("Batal") { dialog, _ ->
+                    dialog.dismiss()
+                }
                 .show()
         }
     }

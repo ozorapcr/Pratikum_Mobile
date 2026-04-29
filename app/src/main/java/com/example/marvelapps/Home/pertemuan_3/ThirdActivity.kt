@@ -1,4 +1,4 @@
-package com.example.marvelapps.pertemuan_3
+package com.example.marvelapps.Home.pertemuan_3
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.marvelapps.R
 import com.example.marvelapps.databinding.ActivityThirdBinding
-import com.example.marvelapps.pertemuan_3.ThirdResultActivity
 
 class ThirdActivity : AppCompatActivity() {
 
