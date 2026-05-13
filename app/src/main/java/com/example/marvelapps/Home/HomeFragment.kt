@@ -1,24 +1,21 @@
 package com.example.marvelapps.Home
 
-import android.R.attr.title
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.marvelapps.AuthActivity
 import com.example.marvelapps.Home.pertemuan_3.ThirdActivity
 import com.example.marvelapps.Home.pertemuan_4.FourthActivity
 import com.example.marvelapps.Home.pertemuan_7.SeventhActivity
+import com.example.marvelapps.Home.pertemuan_9.NinthActivity
 import com.example.marvelapps.Pertemuan_5.FifthActivity
-import com.example.marvelapps.R
 import com.example.marvelapps.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -28,12 +25,12 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as AppCompatActivity).supportActionBar?.apply {
             title = "Home"
@@ -60,6 +57,10 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), SeventhActivity::class.java)
             startActivity(intent)
         }
+        binding.btnToNinth.setOnClickListener {
+            val intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(intent)
+        }
         binding.btnLogout.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Logout")
@@ -67,6 +68,7 @@ class HomeFragment : Fragment() {
                 .setPositiveButton("Ya") { dialog, _ ->
                     val editor = sharedPref.edit()
                     editor.clear()
+                    editor.apply()
 
                     dialog.dismiss()
 
@@ -76,9 +78,13 @@ class HomeFragment : Fragment() {
                 }
                 .setNegativeButton("Tidak") { dialog, _ ->
                     dialog.dismiss()
-
                 }
                 .show()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
