@@ -15,7 +15,7 @@ class MessageAdapter(
 ) : ArrayAdapter<MessageModel>(context, 0, messages) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        // Menggunakan ViewBinding untuk menginflate layout item
+        // Menggunaka ViewBinding untuk menginflate layout item
         val binding = ItemMessageBinding.inflate(LayoutInflater.from(context), parent, false)
         val view = binding.root
 
