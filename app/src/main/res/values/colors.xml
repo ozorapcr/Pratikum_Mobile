@@ -2,8 +2,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Soft Pink Palette -->
-    <color name="pink_soft">#F8BBD0</color>
-    <color name="pink_light">#FCE4EC</color>
-    <color name="pink_dark">#EC407A</color>
+    <!-- Pink Soft Pastel Palette -->
+    <color name="pink_pastel_bg">#FFF5F7</color>
+    <color name="pink_pastel_primary">#FBCFE8</color>
+    <color name="pink_pastel_primary_container">#FCE7F3</color>
+    <color name="pink_pastel_on_primary">#831843</color>
+    <color name="pink_pastel_secondary">#F9A8D4</color>
+    <color name="pink_pastel_dark">#9D174D</color>
+    <color name="pink_pastel_accent">#F472B6</color>
 </resources>

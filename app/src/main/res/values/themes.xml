@@ -1,8 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.OzoraApps" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Main Colors -->
+        <item name="colorPrimary">#FBCFE8</item> <!-- Pink Pastel Primary -->
+        <item name="colorOnPrimary">#9D174D</item>
+        <item name="colorPrimaryContainer">#FCE7F3</item>
+        <item name="colorOnPrimaryContainer">#9D174D</item>
+
+        <item name="colorSecondary">#F9A8D4</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#FDF2F8</item>
+        <item name="colorOnSecondaryContainer">#9D174D</item>
+
+        <item name="android:windowBackground">#FFF5F7</item>
+        <item name="android:statusBarColor">#FBCFE8</item>
+
+        <!-- Global Button Style to make it less "gonjreng" -->
+        <item name="materialButtonStyle">@style/Widget.Material3.Button.TonalButton</item>
     </style>
 
     <style name="Theme.OzoraApps" parent="Base.Theme.OzoraApps" />
