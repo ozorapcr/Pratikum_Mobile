@@ -47,6 +47,9 @@ dependencies {
     implementation(libs.glide)
     annotationProcessor(libs.glide.compiler)
 
+    // DotsIndicator library
+    implementation("com.tbuonomo:dotsindicator:5.1.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

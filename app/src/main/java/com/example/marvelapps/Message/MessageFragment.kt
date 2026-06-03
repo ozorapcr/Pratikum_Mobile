@@ -1,11 +1,12 @@
 package com.example.marvelapps.Message
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.marvelapps.Message.tutorial.TutorialMessageActivity
+import com.example.marvelapps.R
 import com.example.marvelapps.databinding.FragmentMessageBinding
 
 class MessageFragment : Fragment() {
@@ -27,8 +28,9 @@ class MessageFragment : Fragment() {
         // Inisialisasi Toolbar
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as AppCompatActivity).supportActionBar?.apply {
-            title = "Messages"
+            title = "Message"
         }
+        setHasOptionsMenu(true)
 
         // Siapkan data dummy
         val messageList = listOf(
@@ -44,6 +46,21 @@ class MessageFragment : Fragment() {
         // Terapkan MessageAdapter
         val adapter = MessageAdapter(requireContext(), messageList)
         binding.listMessageItem.adapter = adapter
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.message_toolbar_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_tutorial -> {
+                val intent = Intent(requireContext(), TutorialMessageActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onDestroyView() {

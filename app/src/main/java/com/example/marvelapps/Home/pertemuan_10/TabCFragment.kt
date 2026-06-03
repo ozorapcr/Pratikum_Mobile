@@ -88,7 +88,7 @@ class TabCFragment : Fragment() {
 
         binding.rvProducts.apply {
             /** Mode Grid **/
-            layoutManager = GridLayoutManager(requireContext(), 4)
+            layoutManager = GridLayoutManager(requireContext(), 4 )
 
             /** Jika ingin model Linear **/
             //layoutManager = LinearLayoutManager(requireContext())
